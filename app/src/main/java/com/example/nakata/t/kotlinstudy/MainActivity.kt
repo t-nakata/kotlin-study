@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_log.view.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,19 +41,43 @@ class MainActivity : AppCompatActivity() {
     private fun logToZeroToHundred() {
         // 0 から １００ までの数字を出力
 
+
+        for (i in 0..100) {
+            addLog(i.toString())
+        }
+
+
         refreshLog()
     }
 
     private fun logToFizzBuzz() {
         // 3の倍数なら｢Fizz｣ 5の倍数なら｢Buzz｣ 両方の倍数なら｢FizzBuzz｣
 
+
+            for(i in 1..100){
+                if(i % 15 == 0){
+                    addLog("FizzBuzz")
+                }else if(i % 3 == 0){
+                    addLog("Fizz")
+                }else if(i % 5 == 0){
+                    addLog("Buzz")
+                }else{
+                    addLog(i.toString())
+                }
+        }
+
         refreshLog()
+    }
+
+    private fun getRandom(): Int{
+        return Random().nextInt(10) + 1
     }
 
     private fun logToRandom() {
         // 1から10のランダムな値を出力
+        addLog (getRandom().toString())
 
-        resetLog()
+        refreshLog()
     }
 
 
